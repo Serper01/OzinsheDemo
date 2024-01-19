@@ -1,0 +1,19 @@
+/* 
+  Localizable.string.strings
+  OzinsheDemo
+
+  Created by Serper Kurmanbek on 14.01.2024.
+  
+*/
+"MY_PROFILE" = "Мой профиль";
+"LANGUAGE" = "Язык";
+"PERSONAL_DATA" = "Личные данные";
+"CHANGE" = "Изменить";
+"CHANGE_PASSWORD" = "Изменить пароль";
+"TERMS_AND_CONDITIONS" = "Условия и положения";
+"NOTIFICATIONS" = "Уведомления";
+"DARK_MODE" = "Темный режим";
+"YOUR_NAME" = "Ваше имя";
+"BIRTH_DATE" = "Дата рождения";
+"YOUR_PHONE_NUMBER" = "Телефон";
+"SAVE_CHANGES" = "Cохранить изменения";
