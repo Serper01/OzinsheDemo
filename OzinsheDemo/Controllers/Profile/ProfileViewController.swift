@@ -8,7 +8,7 @@
 import UIKit
 import Localize_Swift
 
-class  ProfileViewController: UIViewController,LanguageProtocol {
+class  ProfileViewController: UIViewController,UITableViewDelegate,LanguageProtocol {
 
     @IBOutlet weak var myProfileLabel: UILabel!
     @IBOutlet weak var languageButton: UIButton!
@@ -19,6 +19,8 @@ class  ProfileViewController: UIViewController,LanguageProtocol {
     @IBOutlet weak var termsAndConditionsButton: UIButton!
     @IBOutlet weak var notificationsButton: UIButton!
     @IBOutlet weak var darkModeButton: UIButton!
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +74,20 @@ class  ProfileViewController: UIViewController,LanguageProtocol {
         navigationController?.show(dataButton, sender: self)
         
     }
+    
+    @IBAction func logout(_ sender: Any) {
+        let logOut = storyboard?.instantiateViewController(identifier: "LogOutViewController") as! LogOutViewController
+            logOut.modalPresentationStyle = .overFullScreen
+            present(logOut, animated: true, completion: nil)
+    }
+    
+    @IBAction func changePasswordButton(_ sender: Any) {
+       
+        let dataButton = storyboard?.instantiateViewController(identifier: "PasswordViewController") as! PasswordViewController
+        
+        navigationController?.show(dataButton, sender: self)
+    }
+    
     
     
     

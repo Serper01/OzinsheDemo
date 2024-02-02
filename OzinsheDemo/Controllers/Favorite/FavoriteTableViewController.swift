@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Alamofire
+import SwiftyJSON
 
 class FavoriteTableViewController: UITableViewController {
     
-    var arrayFavorite = ["Image1","Image2","Image3"]
+    var favorites: [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +22,55 @@ class FavoriteTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        downloadFavorites()
     }
+    
+    func downloadFavorites() {
+        SVProgressHUD.show()
+        
+        let headers: HTTPHeaders = [
+            "Authorization": "Bearer \(Storage.sharedInstance.accessToken)"]
+        
+        AF.request(Urls.FAVORITE_URL,method: .get,headers: headers).responseData {
+            response in
+            
+            
+            SVProgressHUD.dismiss()
+            var resultString = ""
+            if let data = response.data {
+                resultString = String(data: data, encoding: .utf8)!
+                print (resultString)
+            }
+            if response.response?.statusCode == 200 {
+                let json = JSON(response.data!)
+                print("JSON: \(json)")
+                
+                if let array = json.array {
+                    for item in array {
+                        let movie = Movie(json: item)
+                        self.favorites.append(movie)
+                    }
+                    self.tableView.reloadData()
+                }else {
+                    SVProgressHUD.showError(withStatus: "CONNECTION_ERROR".localized())
+                }
+            } else {
+                var ErrorString = "CONNECTION_ERROR".localized()
+                if let sCode = response.response?.statusCode {
+                    ErrorString = ErrorString + "\(sCode)"
+                }
+                ErrorString = ErrorString + "\(resultString)"
+                SVProgressHUD.showError(withStatus: "\(ErrorString)")
+            }
+        }
+        
+        
+    }
+    
+    
 
-    // MARK: - Table view data source
+   
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -30,15 +79,15 @@ class FavoriteTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return arrayFavorite.count
+        return favorites.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! FavoriteTableViewCell
 
-        // Configure the cell...
-        cell.setData(movie: arrayFavorite[indexPath.row])
+        cell.setData(movie: favorites[indexPath.row])
+     
 
         return cell
     }

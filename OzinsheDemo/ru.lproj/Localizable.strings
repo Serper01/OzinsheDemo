@@ -17,3 +17,23 @@
 "BIRTH_DATE" = "Дата рождения";
 "YOUR_PHONE_NUMBER" = "Телефон";
 "SAVE_CHANGES" = "Cохранить изменения";
+//"YOUR_EMAIL" = "Введите ваш email";
+//"YOUR_PASSWORD" = "Введите пароль";
+"ENTRY_HELLO_LABEL" = "Привет!";
+"ENTER_YOUR_ACCOUNT" = "Войдите в аккаунт";
+"PASSWORD" = "Пароль";
+"SIGN_IN" = "Войти";
+"FORGOT_PASSWORD" = "Забыли пароль?";
+"CREATE_ACCOUNT" = "У вас нет аккаунта?";
+"CREATE_ACCOUNT_BUTTON" = "Регистрация";
+"FILL_IN_DETAILS" = "Заполните детали";
+"REPEAT_PASSWORD" = "Повторите пароль";
+"YOU_ALREADY_HAVE_ACCOUNT" = "У вас уже есть аккаунт?";
+"ENTER" = "Войти";
+"EXIT" = "Выход";
+"EXIT_CONFIRMATION" = "Вы уверены, что хотите выйти?";
+"YES" = "Да";
+"NO" = "Нет";
+"SAVE_CHANGES" = "Сохранить изменения";
+
+

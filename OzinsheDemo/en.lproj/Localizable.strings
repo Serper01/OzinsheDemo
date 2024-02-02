@@ -17,3 +17,20 @@
 "BIRTH_DATE" = "Birth date";
 "YOUR_PHONE_NUMBER" = "Phone number";
 "SAVE_CHANGES" = "Save changes";
+"ENTRY_HELLO_LABEL" = "Hello!";
+"ENTER_YOUR_ACCOUNT" = "Enter to account";
+"PASSWORD" = "Password";
+"SIGN_IN" = "Sign in";
+"FORGOT_PASSWORD" = "Forgot you password?";
+"CREATE_ACCOUNT" = "You don't have account?";
+"CREATE_ACCOUNT_BUTTON" = "Registration";
+"FILL_IN_DETAILS" = "Fill in details";
+"REPEAT_PASSWORD" = "Repeat password";
+"YOU_ALREADY_HAVE_ACCOUNT" = "Do you already have an account?";
+"ENTER" = "Enter";
+"EXIT" = "Exit";
+"EXIT_CONFIRMATION" = "Are you sure you want to logout?";
+"YES" = "Yes";
+"NO" = "No";
+"SAVE_CHANGES" = "Save Changes";
+
