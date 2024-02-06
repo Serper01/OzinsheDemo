@@ -16,14 +16,11 @@ class FavoriteTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         downloadFavorites()
+        
+        let MovieCellnib = UINib(nibName: "MovieCell", bundle: nil)
+        tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
     }
     
     func downloadFavorites() {
@@ -84,7 +81,7 @@ class FavoriteTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! FavoriteTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieTableViewCell
 
         cell.setData(movie: favorites[indexPath.row])
      
