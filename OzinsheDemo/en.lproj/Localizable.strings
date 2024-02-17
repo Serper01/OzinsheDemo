@@ -33,4 +33,17 @@
 "YES" = "Yes";
 "NO" = "No";
 "SAVE_CHANGES" = "Save Changes";
-
+"ADD_TO_FAVORITE" = "Add to favorite";
+"SHARE" = "Share";
+"DIRECTOR" = "Director";
+"PRODUCER" = "Producer";
+"READ_MORE" = "Read more";
+"DEPARTMENTS" = "Departments";
+"SCREENSHOT" = "Screenshots";
+"CATEGORIES" = "Categories";
+"SEARCH" = "Search";
+"HIDE" = "Hide";
+"SEARCHING_RESULTS" = "Searching results";
+"SHOW_ALL_MOVIES" = "Show all";
+"FIRST_SERIES" = "1-st series";
+"FIRST_SEASON" = "1-st season";

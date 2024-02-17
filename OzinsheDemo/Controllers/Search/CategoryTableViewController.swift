@@ -13,6 +13,9 @@ import Localize_Swift
 
 class CategoryTableViewController: UITableViewController {
     
+    var categoryAgeID = 0
+    var genreID = 0
+    var genreName = ""
     var categoryName = ""
     var categoryID = 0
     
@@ -24,6 +27,7 @@ class CategoryTableViewController: UITableViewController {
         let MovieCellnib = UINib(nibName: "MovieCell", bundle: nil)
         tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
         downloadMoviesByCategory()
+        self.title = categoryName
     }
     
     func downloadMoviesByCategory() {
@@ -67,6 +71,7 @@ class CategoryTableViewController: UITableViewController {
             
         }
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -83,5 +88,12 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 153.0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieInfoVc = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
+        movieInfoVc.movie = movies[indexPath.row]
+        navigationController?.show(movieInfoVc, sender: self)
+        
     }
 }

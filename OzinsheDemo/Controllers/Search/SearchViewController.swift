@@ -49,6 +49,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     @IBOutlet weak var tableViewToCollectionConstraint: NSLayoutConstraint!
     var categories: [Category] = []
     
+    
     var movies: [Movie] = []
     
     override func viewDidLoad() {
@@ -59,6 +60,12 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         configureViews()
         downloadSearchMovies()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        searchTextField.placeholder = "SEARCH".localized()
+        topLabel.text = "CATEGORIES".localized()
+        navigationItem.title = "SEARCH".localized()
+        tableView.reloadData()
+    }
     
     //   MARK: - ConfigureViews
     func configureViews() {
@@ -66,7 +73,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        var layout = LeftAlignedCollectionViewFlowLayout()
+        let layout = LeftAlignedCollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 16.0, left: 24.0, bottom: 16.0, right: 24.0)
         layout.minimumInteritemSpacing = 8
         layout.minimumLineSpacing = 16
@@ -85,6 +92,9 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
         let MovieCellnib = UINib(nibName: "MovieCell", bundle: nil)
         tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
         
+       
+//       topLabel.text = "CATEGORIES".localized()
+//       navigationItem.title = "SEARCH".localized()
     }
     
     @IBAction func textFieldEditingDidBegin(_ sender: TextFieldWithPadding) {
@@ -121,7 +131,7 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     //   MARK: - DownloadSearchMovies
     func downloadSearchMovies() {
         if searchTextField.text!.isEmpty {
-            topLabel.text = "Санаттар"
+            topLabel.text = "CATEGORIES".localized()
             tableViewToLabelConstaint.priority = .defaultLow
             tableViewToCollectionConstraint.priority = .defaultHigh
             collectionView.isHidden = false
@@ -129,14 +139,16 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
             movies.removeAll()
             tableView.reloadData()
             clearButton.isHidden = true
+            navigationItem.title = "SEARCH".localized()
             return
         } else {
-            topLabel.text = "Іздеу нәтижелері"
+            topLabel.text = "SEARCHING_RESULTS".localized()
             collectionView.isHidden = true
             tableViewToLabelConstaint.priority = .defaultHigh
             tableViewToCollectionConstraint.priority = .defaultLow
             tableView.isHidden = false
             clearButton.isHidden = false
+            navigationItem.title = "SEARCH".localized()
             
         
         }
@@ -266,6 +278,13 @@ class SearchViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 153.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieInfoVc = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
+        movieInfoVc.movie = movies[indexPath.row]
+        navigationController?.show(movieInfoVc, sender: self)
+        
     }
     
 }

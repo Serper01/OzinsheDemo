@@ -17,15 +17,18 @@ class FavoriteTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        downloadFavorites()
-        
         let MovieCellnib = UINib(nibName: "MovieCell", bundle: nil)
         tableView.register(MovieCellnib, forCellReuseIdentifier: "MovieCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        downloadFavorites()
     }
     
     func downloadFavorites() {
         SVProgressHUD.show()
         
+        favorites.removeAll()
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(Storage.sharedInstance.accessToken)"]
         
@@ -64,11 +67,6 @@ class FavoriteTableViewController: UITableViewController {
         
         
     }
-    
-    
-
-   
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -91,6 +89,13 @@ class FavoriteTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 153 
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movieInfoVc = storyboard?.instantiateViewController(withIdentifier: "MovieInfoViewController") as! MovieInfoViewController
+        movieInfoVc.movie = favorites[indexPath.row]
+        navigationController?.show(movieInfoVc, sender: self)
+        
     }
 
     /*

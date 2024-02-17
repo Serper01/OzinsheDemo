@@ -35,3 +35,17 @@
 "YES" = "Иә";
 "NO" = "Жоқ";
 "SAVE_CHANGES" = "Өзгерістерді сақтау";
+"ADD_TO_FAVORITE" = "Тізімге қосу";
+"SHARE" = "Бөлісу";
+"DIRECTOR" = "Режиссер";
+"PRODUCER" = "Продюссер";
+"READ_MORE" = "Толығырақ";
+"DEPARTMENTS" = "Бөлімдер";
+"SCREENSHOT" = "Скриншоттар";
+"CATEGORIES" = "Санаттар";
+"SEARCH" = "Іздеу";
+"HIDE" = "Жасыру";
+"SEARCHING_RESULTS" = "Іздеу нәтижелері";
+"SHOW_ALL_MOVIES" = "Барлығы";
+"FIRST_SERIES" = "1 -ші бөлім";
+"FIRST_SEASON" = "1 сезон";

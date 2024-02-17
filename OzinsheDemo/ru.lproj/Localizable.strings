@@ -35,5 +35,17 @@
 "YES" = "Да";
 "NO" = "Нет";
 "SAVE_CHANGES" = "Сохранить изменения";
-
-
+"ADD_TO_FAVORITE" = "Добавить в избранное";
+"SHARE" = "Поделиться";
+"DIRECTOR" = "Режиссер";
+"PRODUCER" = "Продюссер";
+"READ_MORE" = "Подробнее";
+"DEPARTMENTS" = "Разделы";
+"SCREENSHOT" = "Скриншоты";
+"CATEGORIES" = "Категории";
+"SEARCH" = "Поиск";
+"HIDE" = "Скрыть";
+"SEARCHING_RESULTS" = "Результаты поиска";
+"SHOW_ALL_MOVIES" = "Показать всё";
+"FIRST_SERIES" = "1-ая серия";
+"FIRST_SEASON" = "1 сезон";

@@ -12,6 +12,7 @@ target 'OzinsheDemo' do
   pod 'SDWebImage', '~> 5.0'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Localize-Swift', '~> 3.2'
+  pod 'YouTubePlayer'
   
   
 

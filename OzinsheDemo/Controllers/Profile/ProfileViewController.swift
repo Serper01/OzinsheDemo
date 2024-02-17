@@ -20,17 +20,27 @@ class  ProfileViewController: UIViewController,UITableViewDelegate,LanguageProto
     @IBOutlet weak var notificationsButton: UIButton!
     @IBOutlet weak var darkModeButton: UIButton!
     
-  
+    @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var `switch`: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+        if let email = UserDefaults.standard.string(forKey: "email"){
+        emailLabel.text = email
+    }
         // Do any additional setup after loading the view.
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
        configureViews()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationItem.title = ""
     }
     
     func configureViews(){
@@ -88,6 +98,11 @@ class  ProfileViewController: UIViewController,UITableViewDelegate,LanguageProto
         navigationController?.show(dataButton, sender: self)
     }
     
+    @IBAction func switchTheme(sender: UISwitch) {
+        if let window = view.window {
+            window.overrideUserInterfaceStyle = sender.isOn ? .dark: .light
+        }
+    }
     
     
     

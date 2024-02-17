@@ -99,6 +99,7 @@ class PersonalDataViewController: UIViewController,LanguageProtocol {
             "phoneNumber": number,
             "birthDate": birthDate,
           ]
+
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(Storage.sharedInstance.accessToken)"]
         AF.request(Urls.UPDATE_USER_PROFILE, method: .put, parameters: parameters,encoding: JSONEncoding.default, headers: headers).responseData{ response in

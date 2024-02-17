@@ -31,11 +31,15 @@ class PasswordViewController: UIViewController {
     func configureViews() {
         passwordTextField.layer.cornerRadius = 12
         passwordTextField.layer.borderWidth = 1
-        passwordTextField.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.00).cgColor
+//        passwordTextField.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.00).cgColor
+        passwordTextField.layer.borderColor = UIColor(named: "#E5EBF0 - #374151")?.cgColor
         
         repeatPasswordTextField.layer.cornerRadius = 12
         repeatPasswordTextField.layer.borderWidth = 1
-        repeatPasswordTextField.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.00).cgColor
+//        repeatPasswordTextField.layer.borderColor = UIColor(red: 0.90, green: 0.92, blue: 0.94, alpha: 1.00).cgColor
+        repeatPasswordTextField.layer.borderColor = UIColor(named: "#E5EBF0 - #374151")?.cgColor
+        
+        saveChangesButton.layer.cornerRadius = 12
         
         passwordLabel.text = "PASSWORD".localized()
         repeatPasswordLabel.text = "REPEAT_PASSWORD".localized()
